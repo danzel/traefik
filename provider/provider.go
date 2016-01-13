@@ -19,8 +19,8 @@ type Provider interface {
 }
 
 type baseProvider struct {
-	Watch    bool
-	Filename string
+	Watch    bool   `long:"watch" description:"Watch provider" default:"false"`
+	Filename string `long:"filename" description:"Override default configuration template. For advanced users :)"`
 }
 
 func (p *baseProvider) getConfiguration(defaultTemplateFile string, funcMap template.FuncMap, templateObjects interface{}) (*types.Configuration, error) {
